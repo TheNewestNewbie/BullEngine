@@ -1,0 +1,15 @@
+{
+  "name": "bullengine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node.js",
+  "scripts": {
+    "start": "node bullengine.js",
+    "test": "nodemon bullengine.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
