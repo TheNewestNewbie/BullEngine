@@ -2,7 +2,7 @@
   "name": "bullengine",
   "version": "1.0.0",
   "description": "",
-  "main": "node.js",
+  "main": "bullengine.js",
   "scripts": {
     "start": "node bullengine.js",
     "test": "nodemon bullengine.js"
