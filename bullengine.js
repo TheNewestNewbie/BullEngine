@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require("fs");
 
 const BullEngine = (gameName, port) => {
   const app = express();
@@ -15,16 +16,19 @@ const BullEngine = (gameName, port) => {
     app.use(express.static(path));
   }
 
-  const scriptData = "";
+  let scriptData = "";
 
   const addScript = (script) => {
-  }
-  scriptData += `
-  ${script}`;
-
-  const addScriptFile = (name) => {
     scriptData += `
-    <script type="text/javascript" src="${name}"></script>`
+  ${script}
+  `;
+  }
+
+  const addScriptFile = (route) => {
+    const file = fs.readFileSync(route , "utf-8");
+    scriptData += `
+    ${file}
+    `;
   }
 
   const start = () => {
@@ -41,8 +45,11 @@ const BullEngine = (gameName, port) => {
     
   </head>
   <body>
-    
-    ${scriptData}
+    <script>
+      document.body.onload = () => {
+       ${scriptData}
+      }
+    </script>
   </body>
   </html>`);
       res.end();
@@ -65,3 +72,5 @@ const BullEngine = (gameName, port) => {
   };
 
 };
+
+module.exports = BullEngine;

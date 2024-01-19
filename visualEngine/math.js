@@ -3,6 +3,13 @@ class Vector {
         this.x = x;
         this.y = y;
     }
+
+    toNatural(){
+        return {
+            x: Math.round(this.x),
+            y: Math.round(this.y)
+        }
+    }
 }
 
 class Vector3D {
@@ -15,6 +22,10 @@ class Vector3D {
 
 const Porcent = (num, porcent) => {
     return (num * porcent) / 100;
+}
+
+const DegreesToRadians = (degrees) => {
+    return degrees * (Math.PI / 180);
 }
 
 const Distance2D = (vector1, vector2) => {
